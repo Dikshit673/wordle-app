@@ -1,69 +1,38 @@
-# React + TypeScript + Vite
+# Wordle App README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+Wordle is a word-based game app that challenges users to find a five-letter word in six attempts or less. After each guess, the app provides feedback in the form of colored tiles, indicating which letters are correct and in the correct position.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Daily Word**: A new five-letter word is generated every day, providing a fresh challenge for users.
+- **Six Attempts**: Users have six chances to guess the daily word, with feedback provided after each attempt.
+- **Colored Tiles**: Correct letters in the correct position are highlighted in green, while correct letters in incorrect positions are highlighted in yellow.
+- **Incorrect Letters**: Letters that are not in the daily word are highlighted in gray.
+<!-- * **Statistics**: Users can view their win/loss record and average number of attempts per game. -->
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technical Details
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Frontend**: Built using React Native, allowing for a seamless user experience across both iOS and Android platforms.
+- **Backend**: Powered by a Node.js server, utilizing a MongoDB database to store user statistics and daily words.
+- **Word Generation**: Daily words are generated using a combination of natural language processing and machine learning algorithms.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repository: `git clone https://github.com/your-username/wordle-app.git`
+2. Install dependencies: `npm install`
+3. Start the app: `npm start`
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Contributing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Contributions are welcome! If you'd like to report a bug or suggest a feature, please open an issue on the GitHub repository.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+<!-- ## License
+
+This project is licensed under the MIT License. See LICENSE.md for details. -->
+
+## Acknowledgments
+
+- Special thanks to the React Native and Node.js communities for their support and resources.
+- Wordle App icon designed by [Sachin Kumar](https://Sachin-Kumar.com).
