@@ -3,7 +3,6 @@ import { asyncHandler } from '@/helpers/asyncHandler.js';
 import { throwApiError } from '@/helpers/sendResponse.js';
 import { EnvVars } from '@/utils/EnvVars.js';
 import crypto from 'crypto';
-import CryptoJs from 'crypto-js';
 
 const { HMAC_SECRET } = EnvVars;
 const MAX_AGE_MS = 3 * 10 * 1000;
@@ -11,7 +10,6 @@ const MAX_AGE_MS = 3 * 10 * 1000;
 export const hmacAuth = asyncHandler(async (req, _, next) => {
   const signature = req.headers['x-signature'] as string;
   const timestamp = req.headers['x-timestamp'] as string;
-  console.log({ signature });
 
   // console.log(req.headers);
 
@@ -23,22 +21,25 @@ export const hmacAuth = asyncHandler(async (req, _, next) => {
   if (Math.abs(now - Number(timestamp)) > MAX_AGE_MS)
     return throwApiError(401, 'Expired timestamp');
 
-  const secret = HMAC_SECRET!;
+  const secret = HMAC_SECRET;
   const body = JSON.stringify(req.body || {});
   const url = req.originalUrl || '';
   const msg = body + timestamp + url;
 
-  console.log({ msg, secret });
+  console.log({ msg, secret, body, timestamp, url });
 
   const expectedHex = crypto
     .createHmac('sha256', secret)
     .update(msg)
     .digest('hex');
 
+  console.log({ providedHex: signature, expectedHex });
+
   // compare hex strings using timingSafeEqual
   const provided = Buffer.from(signature, 'hex');
   const expected = Buffer.from(expectedHex, 'hex');
   console.log({ provided, expected });
+  console.log(!crypto.timingSafeEqual(provided, expected));
 
   if (
     provided.length !== expected.length ||
