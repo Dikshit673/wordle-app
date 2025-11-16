@@ -1,4 +1,4 @@
-import { useAppContext } from '@/states/hooks/AppContext';
+import { useAppContext } from '@/contexts/hooks/useAppContext';
 import Box, { type ColorKeysType } from './Box';
 import { WORD_LENGTH } from '@/constants';
 

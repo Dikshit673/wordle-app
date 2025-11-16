@@ -1,5 +1,5 @@
 import { MAX_GUESSES } from '@/constants';
-import { useAppContext } from '@/states/hooks/AppContext';
+import { useAppContext } from '@/contexts/hooks/useAppContext';
 import Row from './Row';
 
 const Board = () => {

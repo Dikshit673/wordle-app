@@ -1,4 +1,4 @@
-import { useAppContext } from '@/states/hooks/AppContext';
+import { useAppContext } from '@/contexts/hooks/useAppContext';
 
 const Results = () => {
   const { gameOver, guesses, targetWord } = useAppContext();
