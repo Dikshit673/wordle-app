@@ -1,22 +1,29 @@
 import './App.css';
+import { Route, BrowserRouter as Router, Routes } from 'react-router';
+import { ModalProvider } from './contexts/modal/ModalProvider';
+import { ThemeProvider } from './contexts/theme/ThemeProvider';
+import Navbar from './components/layout/Navbar';
 
-import Board from './components/Board';
-import Results from './components/Results';
+import Home from './pages/Home';
+import HowToPlay from './pages/HowToPlay';
+import NewGame from './pages/NewGame';
+import Stats from './pages/Stats';
 
 function App() {
   return (
-    <section className='min-h-screen w-full bg-gray-300'>
-      <div className='mx-auto w-9/10 md:w-7/10 lg:w-5/10 xl:w-3/10 2xl:w-4/10'>
-        <div className='flex min-h-screen flex-col items-center justify-center bg-white p-4'>
-          <h1 className='mb-4 text-3xl font-bold'>Wordle</h1>
-          <Board />
-          <Results />
-          <p className='mt-2 text-sm text-gray-500'>
-            Type your guess and press Enter
-          </p>
-        </div>
-      </div>
-    </section>
+    <Router>
+      <ThemeProvider>
+        <ModalProvider>
+          <Navbar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/how-to-play' element={<HowToPlay />} />
+            <Route path='/new-game' element={<NewGame />} />
+            <Route path='/stats' element={<Stats />} />
+          </Routes>
+        </ModalProvider>
+      </ThemeProvider>
+    </Router>
   );
 }
 

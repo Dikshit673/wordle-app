@@ -1,1 +1,79 @@
 @import 'tailwindcss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: white;
+  font-family: 'Inter', sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* colors */
+  --color-correct: #16a34a;
+  --color-present: #f59e0b;
+  --color-absent: #676767;
+  --color-empty: #fff;
+  --color-key: #d3d6da;
+  --color-darkKey: #565758;
+
+  /* animations */
+  --animation-pop: pop 150ms ease-out;
+  --animation-shake: shake 400ms ease-in-out;
+  --animation-flip: flip 500ms ease-in;
+
+  /* transitions */
+  --default-transition-duration: 400ms;
+}
+
+@keyframes pop {
+  0% {
+    transform: translateY(-6px) scale(0.995);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(180deg);
+  }
+}
+
+/* small modal animation */
+@keyframes pop {
+  from {
+    transform: translateY(-6px) scale(0.995);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.modal-anim {
+  animation: pop 160ms ease;
+}

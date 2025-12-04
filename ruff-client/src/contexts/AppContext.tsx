@@ -1,7 +1,7 @@
-import type { ColorKeysType } from "@/components/Box";
-import { createContext, type Dispatch, type SetStateAction } from "react";
+import type { ColorKeysType } from '@/components/Box';
+import { createContext, type Dispatch, type SetStateAction } from 'react';
 
-type AppContextType = {
+export type AppContextType = {
   guesses: Array<string>;
   setGuesses: Dispatch<SetStateAction<Array<string>>>;
   currentGuess: string;
@@ -11,6 +11,7 @@ type AppContextType = {
   feedbackList: Array<Array<ColorKeysType>>;
   setFeedbackList: Dispatch<SetStateAction<Array<Array<ColorKeysType>>>>;
   targetWord: string;
+  wordLength: number;
 };
 
-export const AppContext= createContext<AppContextType | null>(null)
+export const AppContext = createContext<AppContextType | null>(null);

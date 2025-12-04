@@ -1,6 +1,5 @@
 import { useAppContext } from '@/contexts/hooks/useAppContext';
 import Box, { type ColorKeysType } from './Box';
-import { WORD_LENGTH } from '@/constants';
 
 type RowProps = {
   id: number;
@@ -9,10 +8,10 @@ type RowProps = {
 };
 
 const Row = ({ id, guess, feedback }: RowProps) => {
-  const { currentGuess, guesses } = useAppContext();
+  const { currentGuess, guesses, wordLength } = useAppContext();
   return (
     <div className='flex gap-2'>
-      {[...Array(WORD_LENGTH)].map((_, colIndex) => {
+      {[...Array(wordLength)].map((_, colIndex) => {
         const letter =
           guess[colIndex] ||
           (id === guesses.length ? currentGuess[colIndex] || '' : '');
