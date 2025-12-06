@@ -2,4 +2,9 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 
-createRoot(document.getElementById('root')!).render(<App />);
+const element = document.getElementById('root');
+if (!element) {
+  throw new Error('Root element not found');
+}
+
+createRoot(element).render(<App />);
