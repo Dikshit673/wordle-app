@@ -7,7 +7,7 @@ const Star = ({ className = '' }: { className?: string }) => {
     <svg
       viewBox='0 0 20 20'
       className={cn(
-        'star animate-star-twinkle size-3 fill-white opacity-100 transition-all duration-400 [animation-delay:0.2s]',
+        'star animate-star-twinkle size-3 fill-white opacity-0 transition-all duration-400 [animation-delay:0.2s]',
         className
       )}
     >
@@ -22,7 +22,7 @@ const Cloud = ({ className = '' }: { className?: string }) => {
     <svg
       viewBox='0 0 16 16'
       className={cn(
-        'cloud animate-cloud-move w-[3.5em] fill-white opacity-0 transition-all duration-400',
+        'cloud animate-cloud-move w-[3.5em] fill-white opacity-100 transition-all duration-400',
         className
       )}
     >
@@ -45,24 +45,26 @@ export const Switch = ({
   ...props
 }: ComponentProps<'input'>) => {
   return (
-    <label className='relative block h-[2.2em] w-[4em] rounded-[30px] text-[17px] shadow-[-1px_3px_5px_0px_#2a2a2a] dark:shadow-[-2px_3px_12px_0px_#a4a4a4]'>
+    <label className='relative block h-9.5 w-18 rounded-[30px] text-[17px] shadow-[-2px_3px_5px_0px_#2a2a2a] dark:shadow-[-2px_3px_12px_0px_#a4a4a4]'>
       {/* HIDDEN CHECKBOX */}
       <input type='checkbox' className='peer sr-only' {...props} />
 
       {/* SLIDER */}
-      <div className='absolute inset-0 cursor-pointer overflow-hidden rounded-[30px] bg-[#2a2a2a] transition-all duration-400 peer-checked:bg-[#00a6ff] peer-checked:[&>.cloud]:translate-y-0 peer-checked:[&>.cloud]:opacity-100 peer-checked:[&>.star]:opacity-0 peer-checked:[&>.thumb]:translate-x-[1.8em] peer-checked:[&>.thumb]:shadow-[inset_15px_-4px_0px_15px_#ffcf48]'>
-        {/* THUMB */}
-        <span className='thumb absolute top-1/2 left-2 size-[1.3em] -translate-y-1/2 rounded-[20px] shadow-[inset_8px_-4px_0px_0px_#fff] transition-all duration-400 ease-[cubic-bezier(0.81,-0.04,0.38,1.5)]' />
+      <div className='absolute inset-0 cursor-pointer overflow-hidden rounded-[30px] bg-[#00a6ff] transition-all duration-400 peer-checked:bg-[#2a2a2a] peer-checked:[&>.cloud]:translate-y-0 peer-checked:[&>.cloud]:opacity-0 peer-checked:[&>.star]:opacity-100 peer-checked:[&>.thumb]:translate-x-6 peer-checked:[&>.thumb]:shadow-[inset_-8px_-4px_0px_0px_#fff]'>
+        {/* 🌙 or ☀️ THUMB */}
+        <span className='thumb absolute top-1/2 left-[19px] size-5.5 -translate-1/2 rounded-[20px] shadow-[inset_15px_-4px_0px_15px_#ffcf48] transition-all duration-400 ease-[cubic-bezier(0.81,-0.04,0.38,1.5)]' />
+        {/* shadow-[inset_15px_-4px_0px_15px_#ffcf48] */}
 
-        {/* ⭐ T2-style STAR ANIMATION (but keep T1 positions) */}
-        <Star className='absolute top-[0.01em] left-[1.5em] size-5 [--star-delay:0.2s]' />
-        <Star className='absolute top-[0.3em] left-[2.4em] size-4.5 [--star-delay:0.6s]' />
-        <Star className='absolute top-[1.2em] left-[2.1em] size-3 [--star-delay:0.3s]' />
-        <Star className='absolute top-[1.1em] left-[3.2em] size-1.5 [--star-delay:0.9s]' />
+        {/* ⭐ STARS NOW ON THE LEFT */}
+        <Star className='absolute top-px left-7 size-5' />
+        <Star className='absolute top-1.5 left-3.5 size-4' />
+        <Star className='absolute top-[22px] left-5.5 size-3' />
+        <Star className='absolute top-4 left-2 size-2' />
+        <Star className='absolute top-5 left-3.5 size-2' />
 
-        {/* ☁ CLOUD (same position as T1 but animated like T2) */}
-        <Cloud className='absolute bottom-[-1.3em] left-[-1em] size-[3.5em] fill-gray-300' />
-        <Cloud className='absolute bottom-[-1.5em] left-[-1.1em] size-[3.4em] duration-200 [--cloud-delay:0.6s]' />
+        {/* ☁ CLOUDS NOW ON THE RIGHT */}
+        <Cloud className='absolute right-[-1em] bottom-[-1.3em] size-[3.5em] fill-gray-300 [--cloud-delay:0.7s]' />
+        <Cloud className='absolute right-[-1.1em] bottom-[-1.5em] size-[3.4em] duration-200' />
       </div>
     </label>
   );

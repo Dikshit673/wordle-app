@@ -15,7 +15,7 @@ export default function ThemeSwitch() {
 
   return (
     <div className='h-full origin-center scale-80'>
-      <Switch checked={theme === 'light'} onChange={handleClick} />
+      <Switch checked={theme === 'dark'} onChange={handleClick} />
     </div>
   );
 }
