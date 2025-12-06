@@ -45,7 +45,7 @@ export const Switch = ({
   ...props
 }: ComponentProps<'input'>) => {
   return (
-    <label className='relative block h-[2.2em] w-[4em] rounded-[30px] text-[17px] shadow-[-1px_3px_5px_0px_#2a2a2a]'>
+    <label className='relative block h-[2.2em] w-[4em] rounded-[30px] text-[17px] shadow-[-1px_3px_5px_0px_#2a2a2a] dark:shadow-[-2px_3px_12px_0px_#a4a4a4]'>
       {/* HIDDEN CHECKBOX */}
       <input type='checkbox' className='peer sr-only' {...props} />
 
