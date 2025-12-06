@@ -52,15 +52,15 @@ export const Switch = ({
       {/* SLIDER */}
       <div className='absolute inset-0 cursor-pointer overflow-hidden rounded-[30px] bg-[#00a6ff] transition-all duration-400 peer-checked:bg-[#2a2a2a] peer-checked:[&>.cloud]:translate-y-0 peer-checked:[&>.cloud]:opacity-0 peer-checked:[&>.star]:opacity-100 peer-checked:[&>.thumb]:translate-x-6 peer-checked:[&>.thumb]:shadow-[inset_-8px_-4px_0px_0px_#fff]'>
         {/* 🌙 or ☀️ THUMB */}
-        <span className='thumb absolute top-1/2 left-[19px] size-5.5 -translate-1/2 rounded-[20px] shadow-[inset_15px_-4px_0px_15px_#ffcf48] transition-all duration-400 ease-[cubic-bezier(0.81,-0.04,0.38,1.5)]' />
+        <span className='thumb absolute top-1/2 left-4.5 size-5.5 -translate-1/2 rounded-[20px] shadow-[inset_15px_-4px_0px_15px_#ffcf48] transition-all duration-400 ease-[cubic-bezier(0.81,-0.04,0.38,1.5)]' />
         {/* shadow-[inset_15px_-4px_0px_15px_#ffcf48] */}
 
         {/* ⭐ STARS NOW ON THE LEFT */}
-        <Star className='absolute top-px left-7 size-5' />
-        <Star className='absolute top-1.5 left-3.5 size-4' />
-        <Star className='absolute top-[22px] left-5.5 size-3' />
-        <Star className='absolute top-4 left-2 size-2' />
-        <Star className='absolute top-5 left-3.5 size-2' />
+        <Star className='absolute top-px left-7 size-5 [--star-delay:0.2s]' />
+        <Star className='absolute top-2 left-3.5 size-4 [--star-delay:0.6s]' />
+        <Star className='absolute top-[22px] left-6 size-3 [--star-delay:0.3s]' />
+        <Star className='absolute top-5 left-2 size-2 [--star-delay:0.9s]' />
+        <Star className='absolute top-6.5 left-[15px] size-2 [--star-delay:0.5s]' />
 
         {/* ☁ CLOUDS NOW ON THE RIGHT */}
         <Cloud className='absolute right-[-1em] bottom-[-1.3em] size-[3.5em] fill-gray-300 [--cloud-delay:0.7s]' />
