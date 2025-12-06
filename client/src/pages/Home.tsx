@@ -1,10 +1,13 @@
+import { Heading } from '@/components/ui/Heading';
 import { Link } from 'react-router';
 
 export default function Home() {
   return (
-    <div className='bg-white p-20 text-center text-black dark:bg-gray-800 dark:text-white'>
-      <h1 className='mb-10 text-4xl font-bold'>Wordle Clone</h1>
-
+    <>
+      <Heading.H2
+        title='Wordle'
+        className='mb-4 text-slate-900 dark:text-gray-100'
+      />
       <div className='flex flex-col gap-4 text-lg'>
         <Link to='/new-game' className='text-blue-500 underline'>
           ▶ Start Random Game
@@ -22,6 +25,6 @@ export default function Home() {
           ❓ How to Play
         </Link>
       </div>
-    </div>
+    </>
   );
 }

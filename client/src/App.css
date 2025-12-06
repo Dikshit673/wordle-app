@@ -1,0 +1,41 @@
+@layer utilities {
+  /* STAR TWINKLE (from T2) */
+  @keyframes star-twinkle {
+    0% {
+      transform: scale(1);
+    }
+    40% {
+      transform: scale(1.2);
+    }
+    80% {
+      transform: scale(0.8);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .animate-star-twinkle {
+    animation: star-twinkle 2s infinite var(--star-delay, 0s);
+  }
+
+  /* CLOUD MOVE (from T2) */
+  @keyframes cloud-move {
+    0% {
+      transform: translateX(0px);
+    }
+    40% {
+      transform: translateX(4px);
+    }
+    80% {
+      transform: translateX(-4px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+
+  .animate-cloud-move {
+    animation: cloud-move 6s infinite var(--cloud-delay, 0s);
+  }
+}

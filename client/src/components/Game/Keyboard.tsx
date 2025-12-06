@@ -25,14 +25,19 @@ export default function Keyboard() {
     [handleKeyPress]
   );
   return (
-    <div className='mt-4 flex flex-col gap-2 select-none' onClick={handleClick}>
-      {KEY_ROWS.map((row, i) => (
-        <div key={i} className='flex justify-center gap-1'>
-          {row.map((k) => (
-            <KeyButton key={k} label={k} keyState={usedKeys[k]} />
-          ))}
-        </div>
-      ))}
+    <div className='w-full overflow-x-auto pb-2'>
+      <div
+        className='flex min-w-max flex-col items-center justify-start gap-2 select-none'
+        onClick={handleClick}
+      >
+        {KEY_ROWS.map((row, i) => (
+          <div key={i} className='flex justify-center gap-1'>
+            {row.map((k) => (
+              <KeyButton key={k} label={k} keyState={usedKeys[k]} />
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

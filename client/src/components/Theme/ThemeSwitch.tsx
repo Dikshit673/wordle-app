@@ -1,12 +1,8 @@
 import { useTheme } from '@/contexts/theme/useTheme';
 import { useCallback } from 'react';
+import { Switch } from './Switch';
 
-const themeLabels = {
-  light: '🌞 Light',
-  dark: '🌜 Dark',
-};
-
-export default function DarkModeToggle() {
+export default function ThemeSwitch() {
   const { theme, toggleTheme } = useTheme();
 
   const handleClick = useCallback(() => {
@@ -18,14 +14,8 @@ export default function DarkModeToggle() {
   }, [toggleTheme, theme]);
 
   return (
-    <div>
-      <button
-        type='button'
-        className='cursor-pointer select-none'
-        onClick={handleClick}
-      >
-        {themeLabels[theme]}
-      </button>
+    <div className='h-full origin-center scale-80'>
+      <Switch checked={theme === 'light'} onChange={handleClick} />
     </div>
   );
 }

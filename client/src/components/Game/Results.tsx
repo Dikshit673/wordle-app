@@ -8,7 +8,10 @@ const Results = () => {
       return <p className='font-bold text-green-600'>You Won! 🎉</p>;
     case 'lost':
       return (
-        <p className='font-bold text-red-600'>You Lost! Answer: {winWord}</p>
+        <p className='flex flex-col items-center font-bold text-red-600'>
+          <span>You Lost!</span>
+          <span>Answer: {winWord}</span>
+        </p>
       );
     default:
       return null;
